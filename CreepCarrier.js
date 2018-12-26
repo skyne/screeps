@@ -105,6 +105,7 @@ CreepCarrier.prototype.depositEnergy = function() {
 		if(!this.creep.pos.isNearTo(worker, range)) {
 			this.creep.say('transfer');
 			this.creep.moveTo(worker, {visualizePathStyle: {stroke: '#ff00ff'}});
+			this.creep.transfer(worker, RESOURCE_ENERGY);
 		} else {
 			this.remember('move-attempts', 0);
 		}
@@ -183,6 +184,7 @@ CreepCarrier.prototype.harvest = function() {
 				creepsNear[n].transfer(this.creep, RESOURCE_ENERGY);
 			}
             if(creepsNear[n].memory.role === 'CreepBuilder'){
+				this.creep.moveTo(creepsNear[n], {visualizePathStyle: {stroke: '#ff00ff'}});
                 this.creep.transfer(creepsNear[n], RESOURCE_ENERGY);
 			}
 		}
