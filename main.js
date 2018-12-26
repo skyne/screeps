@@ -22,7 +22,7 @@ for(var n in rooms) {
   
 	console.log(
 		room.room.name + ' | ' +
-		', population: ' +
+		'population: ' +
 		room.population.getTotalPopulation() + '/' + room.population.getMaxPopulation() +
 		' ( B:' + room.population.getType('CreepBuilder').total + '/' + room.population.getType('CreepBuilder').max +
 		' #M: ' + room.population.getType('CreepMiner').total + '/' + room.population.getType('CreepMiner').max +
