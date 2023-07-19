@@ -5,7 +5,7 @@ var myRoom = require('myRoom');
 var CreepBase = require('CreepBase');
 var CreepScout = require('CreepScout');
 
-//ScoutHandler.setRoomHandler(RoomHandler);
+ScoutHandler.setRoomHandler(RoomHandler);
 
 // Init rooms 
 for(var n in Game.rooms) {
@@ -37,7 +37,7 @@ for(var n in rooms) {
 };
 
 // Load scouts.
-//ScoutHandler.loadScouts();
-//ScoutHandler.spawnNewScouts();
+ScoutHandler.loadScouts();
+/ScoutHandler.spawnNewScouts();
 
 HelperFunctions.garbageCollection();
