@@ -193,7 +193,37 @@ CreepFactory.prototype.new = function(creepType, spawn) {
 			}
 		break;
 		case 'CreepScout':
-			abilities = [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+			if(level <= 1) {
+				abilities = [TOUGH, MOVE, MOVE];
+			} else
+			if(level <= 2) {
+				abilities = [TOUGH, TOUGH, MOVE, MOVE];
+			} else
+
+			if(level <= 3) {
+				abilities = [TOUGH, TOUGH, MOVE, MOVE, MOVE];
+			} else
+			if(level <= 4) {
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE];
+			} else
+			if(level <= 5) {
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE];
+			} else
+			if(level <= 6) {
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE];
+			} else
+			if(level <= 7) {
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+			} else
+			if(level <= 8) {
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+			} else
+			if(level <= 9) {
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+			} else
+			{
+				abilities = [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+			}
 		break;
 		case 'CreepHealer':
 			abilities = [MOVE, MOVE, MOVE, HEAL, MOVE];
