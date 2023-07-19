@@ -46,6 +46,13 @@ function Population(room) {
 			currentPercentage: 0,
 			max: 3,
 			minExtensions: 10
+		},
+		CreepScout: {
+			total: 0,
+			goalPercentage: 0.1,
+			currentPercentage: 0,
+			max: 1,
+			minExtensions: 0
 		}
 	};
 

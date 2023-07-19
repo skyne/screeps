@@ -42,6 +42,8 @@ CreepFactory.prototype.load = function(creep) {
 		break;
 		case 'CreepShooter':
 			loadedCreep = new CreepShooter(creep);
+		case 'CreepScout':
+			loadedCreep = new CreepScout(creep, this.roomHandler);
 		break;
 	}
 
