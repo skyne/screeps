@@ -38,6 +38,12 @@ CreepScout.prototype.act = function() {
         }
     }
     
+    if(!this.room.owner && this.room.controller) {
+        this.creep.moveTo(this.room.controller);
+        this.creep.claimController(this.room.controller);
+    }
+    
+
     if(!this.remember('targetRoom')){
         console.log(this.creep.name + ' is idle in ' + this.creep.room.name);
     }

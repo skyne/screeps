@@ -187,9 +187,6 @@ myRoom.prototype.distributeResources = function(type) {
 	var counter = 0;
 	var source = 0;
 
-	if(this.room.name == 'E15S42')
-		console.log('distributeResources: ' + type + ' ' + perSource + ' ' + this.creeps.length)
-
 	for(var i = 0; i < this.creeps.length; i++) {
 		var creep = this.creeps[i];
 		if(creep.remember('role') != type) {
@@ -197,7 +194,6 @@ myRoom.prototype.distributeResources = function(type) {
 		}
 
 		if(!sources[source]) {
-			console.log('no source found for ' + type')
 			continue;
 		}
 

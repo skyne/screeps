@@ -194,35 +194,35 @@ CreepFactory.prototype.new = function(creepType, spawn) {
 		break;
 		case 'CreepScout':
 			if(level <= 1) {
-				abilities = [TOUGH, MOVE, MOVE];
+				abilities = [TOUGH, MOVE, CLAIM];
 			} else
 			if(level <= 2) {
-				abilities = [TOUGH, TOUGH, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, MOVE, CLAIM];
 			} else
 
 			if(level <= 3) {
-				abilities = [TOUGH, TOUGH, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, MOVE, MOVE, CLAIM];
 			} else
 			if(level <= 4) {
-				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, CLAIM];
 			} else
 			if(level <= 5) {
-				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, CLAIM];
 			} else
 			if(level <= 6) {
-				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, CLAIM];
 			} else
 			if(level <= 7) {
-				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, CLAIM];
 			} else
 			if(level <= 8) {
-				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, CLAIM];
 			} else
 			if(level <= 9) {
-				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, CLAIM];
 			} else
 			{
-				abilities = [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE];
+				abilities = [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, MOVE, MOVE, MOVE, MOVE, MOVE, CLAIM];
 			}
 		break;
 		case 'CreepHealer':
@@ -242,7 +242,7 @@ CreepFactory.prototype.new = function(creepType, spawn) {
 	}
 
 	console.log('Spawn level ' + level + ' ' + creepType + '(' + creepLevel + '/' + resourceLevel + ')');
-	spawn.createCreep(abilities, creepType + '-' + id, {role: creepType});
+	spawn.createCreep(abilities, creepType + '-' + id, {role: creepType, homeRoom: spawn.room.name});
 };
 
 module.exports = CreepFactory;
