@@ -32,13 +32,16 @@ CreepScout.prototype.moveToNewRoom = function() {
         this.creep.moveTo(exit);
         return true;
     }
-    else if(scoutflags.length != 0) {
-    {
+    if(scoutflags.length != 0) {
+
         const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.room.name));
-        var exitDir = this.creep.room.findExitTo(this.remember('roomName'));
-        var exit = this.creep.pos.findClosestByRange(exitDir);
-        this.creep.moveTo(exit);
-        return true;
+        if(unvisitedFlags.length != 0) {
+            var exitDir = this.creep.room.findExitTo(unvisitedFlags[0].room.name);
+            var exit = this.creep.pos.findClosestByRange(exitDir);
+            this.creep.moveTo(exit);
+            return true;
+        }
+        return false;
     }
     return false;
 };
