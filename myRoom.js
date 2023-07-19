@@ -41,7 +41,7 @@ myRoom.prototype.sendReinforcements = function(room) {
 		console.log(this.room.name + ': already given reinforcements');
 		return;
 	}
-	if(this.population.getTotalPopulation() < this.population.getMaxPopulation()*0.8) {
+	if(this.population.getTotalPopulation() < this.population.getMaxPopulation()*0.5) {
 		console.log(this.room.name + ': Not enough resources ' + '(' + this.population.getTotalPopulation() + '/' + this.population.getMaxPopulation()*0.8 + ')');
 		return;
 	}
