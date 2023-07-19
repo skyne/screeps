@@ -10,7 +10,6 @@ CreepScout.prototype.init = function() {
     this.remember('visitedRooms', []);
     if(this.remember('role')) {
         this.remember('roomName', this.creep.room.name);
-        this.remember('visitedRooms', this.remember('visitedRooms').concat([this.creep.room.name]));
     }
 
     var scoutflags = Object.values(Game.flags).filter((o) => o.name.toLowerCase().includes('scout'))
@@ -33,6 +32,16 @@ CreepScout.prototype.avoidEnemy = function() {
 };
 
 CreepScout.prototype.act = function() {
+    if(this.remember('targetRoom') === this.creep.room.name) {
+        if(!this.remember('visitedRooms').includes(this.creep.room.name){
+            this.remember('visitedRooms', this.remember('visitedRooms').concat([this.creep.room.name]));
+        } 
+
+        var flag = Object.values(Game.flags).filter((o) => o.name.toLowerCase().includes('scout') && o.room.name === this.creep.room.name)[0];
+        this.creep.moveTo(flag, {visualizePathStyle: {stroke: '#ff0000'}});
+        
+
+    }
     this.conquer();
 };
 
