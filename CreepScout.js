@@ -13,10 +13,14 @@ CreepScout.prototype.init = function() {
     }
 
     var scoutflags = Object.values(Game.flags).filter((o) => o.name.toLowerCase().includes('scout'))
-    const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.pos.roomName));
-        if(unvisitedFlags.length != 0) {
-            this.remember('targetRoom', unvisitedFlags[0].pos.roomName);
-        }
+    const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.pos.roomName) && o.pos.roomName != this.creep.room.name);
+    if(unvisitedFlags.length != 0) {
+        this.remember('targetRoom', unvisitedFlags[0].pos.roomName);
+    }
+    else {
+        this.remember('targetRoom', false);
+    }
+
 
     if(this.moveToNewRoom() == true) {
 		return;
