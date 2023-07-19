@@ -90,9 +90,9 @@ Population.prototype.getType = function(type) {
 Population.prototype.getTypes = function(type) {
 	var types = [];
 	for(var n in this.typeDistribution) {
-		if(n != 'CreepScout') {
+		//if(n != 'CreepScout') {
 			types.push(n);
-		}
+		//}
 	}
 	return types;
 };
@@ -101,7 +101,7 @@ Population.prototype.getTotalPopulationOfType = function(type) {
 	return this.creeps.filter((o) => o.role === type).length;
 };
 
-Population.prototype.getTotalPopulation = function(type) {
+Population.prototype.getTotalPopulation = function(type) { 
 	return this.creeps.length;
 };
 
