@@ -12,16 +12,6 @@ CreepScout.prototype.init = function() {
         this.remember('roomName', this.creep.room.name);
     }
 
-    var scoutflags = Object.values(Game.flags).filter((o) => o.name.toLowerCase().includes('scout'))
-    const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.pos.roomName) && o.pos.roomName != this.creep.room.name);
-    if(unvisitedFlags.length != 0) {
-        this.remember('targetRoom', unvisitedFlags[0].pos.roomName);
-    }
-    else {
-        this.remember('targetRoom', false);
-    }
-
-
     if(this.moveToNewRoom() == true) {
 		return;
 	}
@@ -38,6 +28,16 @@ CreepScout.prototype.avoidEnemy = function() {
 CreepScout.prototype.act = function() {
     console.log('act');
     
+    if(!this.remember('targetRoom')) {
+        var scoutflags = Object.values(Game.flags).filter((o) => o.name.toLowerCase().includes('scout'))
+        const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.pos.roomName) && o.pos.roomName != this.creep.room.name);
+        if(unvisitedFlags.length != 0) {
+            this.remember('targetRoom', unvisitedFlags[0].pos.roomName);
+        }
+        else {
+            this.remember('targetRoom', false);
+        }
+    }
 };
 
 CreepScout.prototype.findController = function() {
