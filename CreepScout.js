@@ -15,7 +15,7 @@ CreepScout.prototype.init = function() {
     var scoutflags = Object.values(Game.flags).filter((o) => o.name.toLowerCase().includes('scout'))
     const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.pos.roomName));
         if(unvisitedFlags.length != 0) {
-            this.remember('targetRoom', unvisitedFlags[0].room.name);
+            this.remember('targetRoom', unvisitedFlags[0].pos.roomName);
         }
 
     if(this.moveToNewRoom() == true) {
