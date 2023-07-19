@@ -38,6 +38,6 @@ for(var n in rooms) {
 
 // Load scouts.
 ScoutHandler.loadScouts();
-/ScoutHandler.spawnNewScouts();
+ScoutHandler.spawnNewScouts();
 
 HelperFunctions.garbageCollection();
