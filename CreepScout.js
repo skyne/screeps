@@ -10,7 +10,7 @@ CreepScout.prototype.init = function() {
     this.remember('visitedRooms', []);
     if(this.remember('role')) {
         this.remember('roomName', this.creep.room.name);
-        this.remember('visitedRooms', this.remember('visitedRooms').concat([this.creep.room.name]);
+        this.remember('visitedRooms', this.remember('visitedRooms').concat([this.creep.room.name]));
     }
 
     var scoutflags = Game.flags.filter((o) => o.name.toLowerCase.includes('scout'))
