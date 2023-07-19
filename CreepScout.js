@@ -22,7 +22,7 @@ CreepScout.prototype.init = function() {
 };
 
 CreepScout.prototype.avoidEnemy = function() {
-    return true;
+    return false;
 };
 
 CreepScout.prototype.act = function() {
