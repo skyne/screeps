@@ -1,9 +1,9 @@
 var CreepScout = require('CreepScout');
 var CreepBase = require('CreepBase');
 var HelperFunctions = require('HelperFunctions');
+var RoomHandler = require('RoomHandler');
 
 var ScoutHandler = {
-    roomHandler: {}
 };
 
 ScoutHandler.scouts = [];
@@ -21,11 +21,11 @@ ScoutHandler.loadScouts = function() {
 };
 
 ScoutHandler.setRoomHandler = function(roomHandler) {
-    this.roomHandler = roomHandler;
+    console.log('DEPRECATED!')
 };
 
 ScoutHandler.spawnNewScouts = function() {
-    var rooms = this.roomHandler.getRoomHandlers();
+    var rooms = RoomHandler.getRoomHandlers();
     for(var n in rooms) {
         var room = rooms[n];
         if(!rooms[n].depositManager.getSpawnDeposit()) {
