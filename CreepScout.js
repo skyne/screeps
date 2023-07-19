@@ -7,6 +7,7 @@ var CreepScout = function(creep, roomHandler) {
 
 CreepScout.prototype.init = function() {
     this.remember('role', 'CreepScout');
+    this.remember('visitedRooms', []);
     if(this.remember('role')) {
         this.remember('roomName', this.creep.room.name);
     }
@@ -24,7 +25,16 @@ CreepScout.prototype.avoidEnemy = function() {
 };
 
 CreepScout.prototype.moveToNewRoom = function() {
-    if(this.remember('role') == 'CreepScout' && this.remember('roomName') != this.creep.room.name) {
+    var scoutflags = Game.flags.filter((o) => o.name.toLowerCase.includes('scout'))
+    if(this.remember('roomName') != this.creep.room.name) {
+        var exitDir = this.creep.room.findExitTo(this.remember('roomName'));
+        var exit = this.creep.pos.findClosestByRange(exitDir);
+        this.creep.moveTo(exit);
+        return true;
+    }
+    else if(scoutflags.length != 0) {
+    {
+        const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.room.name));
         var exitDir = this.creep.room.findExitTo(this.remember('roomName'));
         var exit = this.creep.pos.findClosestByRange(exitDir);
         this.creep.moveTo(exit);
