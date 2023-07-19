@@ -19,6 +19,20 @@ CreepScout.prototype.init = function() {
     this.act();
 };
 
+CreepScout.prototype.avoidEnemy = function() {
+    return true;
+};
+
+CreepScout.prototype.moveToNewRoom = function() {
+    if(this.remember('role') == 'CreepScout' && this.remember('roomName') != this.creep.room.name) {
+        var exitDir = this.creep.room.findExitTo(this.remember('roomName'));
+        var exit = this.creep.pos.findClosestByRange(exitDir);
+        this.creep.moveTo(exit);
+        return true;
+    }
+    return false;
+};
+
 CreepScout.prototype.act = function() {
     this.conquer();
 };
