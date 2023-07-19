@@ -43,4 +43,4 @@ ScoutHandler.spawnNewScouts();
 HelperFunctions.garbageCollection();
 
 Game.gc = HelperFunctions.garbageCollection;
-Game.spawnNewScouts = ScoutHandler.spawnNewScouts();
+Game.spawnNewScouts = ScoutHandler.spawnNewScouts;
