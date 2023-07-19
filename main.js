@@ -41,3 +41,5 @@ ScoutHandler.loadScouts();
 ScoutHandler.spawnNewScouts();
 
 HelperFunctions.garbageCollection();
+
+exports.gc = HelperFunctions.garbageCollection;
