@@ -90,7 +90,9 @@ Population.prototype.getType = function(type) {
 Population.prototype.getTypes = function(type) {
 	var types = [];
 	for(var n in this.typeDistribution) {
-		types.push(n);
+		if(n != 'CreepScout') {
+			types.push(n);
+		}
 	}
 	return types;
 };
