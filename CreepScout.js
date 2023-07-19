@@ -25,18 +25,20 @@ CreepScout.prototype.avoidEnemy = function() {
     return false;
 };
 
-CreepScout.prototype.act = function() {
-    console.log('act');
-    
+CreepScout.prototype.act = function() {  
     if(!this.remember('targetRoom')) {
         var scoutflags = Object.values(Game.flags).filter((o) => o.name.toLowerCase().includes('scout'))
         const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.pos.roomName) && o.pos.roomName != this.creep.room.name);
         if(unvisitedFlags.length != 0) {
             this.remember('targetRoom', unvisitedFlags[0].pos.roomName);
+            console.log(this.creep.name + ' is scouting ' + this.remember('targetRoom'));
         }
         else {
             this.remember('targetRoom', false);
         }
+    }
+    else{
+        console.log(this.creep.name + ' is idle in ' + this.creep.room.name);
     }
 };
 
