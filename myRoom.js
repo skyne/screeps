@@ -22,7 +22,7 @@ function myRoom(room, roomHandler) {
 
 myRoom.prototype.askForReinforcements = function() {
 	//console.log(this.room.name + ': ask for reinforcements.');
-	//this.roomHandler.requestReinforcement(this);
+	this.roomHandler.requestReinforcement(this);
 };
 
 myRoom.prototype.sendReinforcements = function(room) {
