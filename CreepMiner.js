@@ -30,6 +30,7 @@ CreepMiner.prototype.init = function() {
 		this.remember('srcRoom', this.creep.room.name);
 	}
 	if(this.moveToNewRoom() == true) {
+		this.remember('source', false)
 		return;
 	}
 

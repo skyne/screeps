@@ -32,6 +32,7 @@ CreepScout.prototype.avoidEnemy = function() {
 };
 
 CreepScout.prototype.act = function() {
+    console.log('act');
     if(this.remember('targetRoom') === this.creep.room.name) {
         if(!this.remember('visitedRooms').includes(this.creep.room.name)) {
             this.remember('visitedRooms', this.remember('visitedRooms').concat([this.creep.room.name]));
