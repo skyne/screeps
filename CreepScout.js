@@ -10,7 +10,15 @@ CreepScout.prototype.init = function() {
     this.remember('visitedRooms', []);
     if(this.remember('role')) {
         this.remember('roomName', this.creep.room.name);
+        this.remember('visitedRooms', this.remember('visitedRooms').concat([this.creep.room.name]);
     }
+
+    var scoutflags = Game.flags.filter((o) => o.name.toLowerCase.includes('scout'))
+    const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.room.name));
+        if(unvisitedFlags.length != 0) {
+            this.remember('targetRoom', unvisitedFlags[0].room.name);
+        }
+
     if(this.moveToNewRoom() == true) {
 		return;
 	}
@@ -22,28 +30,6 @@ CreepScout.prototype.init = function() {
 
 CreepScout.prototype.avoidEnemy = function() {
     return true;
-};
-
-CreepScout.prototype.moveToNewRoom = function() {
-    var scoutflags = Game.flags.filter((o) => o.name.toLowerCase.includes('scout'))
-    if(this.remember('roomName') != this.creep.room.name) {
-        var exitDir = this.creep.room.findExitTo(this.remember('roomName'));
-        var exit = this.creep.pos.findClosestByRange(exitDir);
-        this.creep.moveTo(exit);
-        return true;
-    }
-    if(scoutflags.length != 0) {
-
-        const unvisitedFlags = scoutflags.filter((o) => !this.remember('visitedRooms').includes(o.room.name));
-        if(unvisitedFlags.length != 0) {
-            var exitDir = this.creep.room.findExitTo(unvisitedFlags[0].room.name);
-            var exit = this.creep.pos.findClosestByRange(exitDir);
-            this.creep.moveTo(exit);
-            return true;
-        }
-        return false;
-    }
-    return false;
 };
 
 CreepScout.prototype.act = function() {
