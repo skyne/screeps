@@ -37,6 +37,7 @@ for(var n in rooms) {
 };
 
 // Load scouts.
+ScoutHandler.roomHandler = RoomHandler.get('E15S41');
 ScoutHandler.loadScouts();
 ScoutHandler.spawnNewScouts();
 
