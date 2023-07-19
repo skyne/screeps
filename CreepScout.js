@@ -37,7 +37,8 @@ CreepScout.prototype.act = function() {
             this.remember('targetRoom', false);
         }
     }
-    else{
+    
+    if(!this.remember('targetRoom')){
         console.log(this.creep.name + ' is idle in ' + this.creep.room.name);
     }
 };
