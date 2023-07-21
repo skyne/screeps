@@ -66,13 +66,13 @@ CreepBase.moveToNewRoom = function() {
 	var srcRoom = this.remember('srcRoom');
 
 	if(targetRoom) {
+	    console.log(targetRoom, this.creep.pos.roomName)
 		if(targetRoom != this.creep.room.name) {
 			var exitDir = this.creep.room.findExitTo(targetRoom);
 			var exit = this.creep.pos.findClosestByRange(exitDir);
 			this.creep.moveTo(exit);
 			return true;
 		} else {
-			
 			this.creep.moveTo(30,30);
 			var targetRoom = this.remember('targetRoom', false);
 			var srcRoom = this.remember('srcRoom', this.creep.room.name);

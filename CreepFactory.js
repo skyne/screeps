@@ -194,10 +194,10 @@ CreepFactory.prototype.new = function(creepType, spawn) {
 		break;
 		case 'CreepScout':
 			if(level <= 1) {
-				abilities = [TOUGH, MOVE, CLAIM];
+				abilities = [TOUGH, MOVE, MOVE];
 			} else
 			if(level <= 2) {
-				abilities = [TOUGH, TOUGH, MOVE, CLAIM];
+				abilities = [TOUGH, TOUGH, MOVE, MOVE];
 			} else
 
 			if(level <= 3) {
@@ -238,6 +238,7 @@ CreepFactory.prototype.new = function(creepType, spawn) {
 		}
 	);
 	if(canBuild !== 0) {
+	    //console.log(`cannot build ${creepType}`)
 		return;
 	}
 

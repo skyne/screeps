@@ -3,6 +3,8 @@ var CreepBase = require('CreepBase');
 var HelperFunctions = require('HelperFunctions');
 var RoomHandler = require('RoomHandler');
 
+const MAX_SCOUTS =1;
+
 var ScoutHandler = {
 };
 
@@ -20,18 +22,27 @@ ScoutHandler.loadScouts = function() {
     }
 };
 
-ScoutHandler.setRoomHandler = function(roomHandler) {
-    console.log('DEPRECATED!')
-};
-
-ScoutHandler.spawnNewScouts = function() {
+ScoutHandler.spawnNewScouts = function(force = false) {
     var rooms = RoomHandler.getRoomHandlers();
+    
+    let allScoutPopulation = 0;
+    
+    for(var n in rooms) {
+        var room = rooms[n];
+        const scoutsInRoom = room.population.getType('CreepScout').total;
+        allScoutPopulation += scoutsInRoom;
+    }
+    
+    console.log(`GLOBAL: scout total population = ${allScoutPopulation}/${MAX_SCOUTS}`);
+    
     for(var n in rooms) {
         var room = rooms[n];
         if(!rooms[n].depositManager.getSpawnDeposit()) {
             continue;
         }
-        if(room.population.goalsMet() == true && room.constructionManager.getController().level >= 4) {
+        
+        const goalsmet = allScoutPopulation < MAX_SCOUTS;
+        if((goalsmet && room.constructionManager.getController().level >= 2) || force) {
             console.log(rooms[n].room.name + ' should expand.');
             rooms[n].creepFactory.new('CreepScout', rooms[n].depositManager.getSpawnDeposit());
         }

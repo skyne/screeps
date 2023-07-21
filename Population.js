@@ -21,7 +21,7 @@ function Population(room) {
 		},
 		CreepBuilder: {
 			total: 0,
-			goalPercentage: 0.25,
+			goalPercentage: 0.3,
 			currentPercentage: 0,
 			max: 15,
 			minExtensions: 0
@@ -49,7 +49,7 @@ function Population(room) {
 		},
 		CreepScout: {
 			total: 0,
-			goalPercentage: 0.1,
+			goalPercentage: 0.2,
 			currentPercentage: 0,
 			max: 1,
 			minExtensions: 0

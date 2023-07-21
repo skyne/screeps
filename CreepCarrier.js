@@ -103,7 +103,7 @@ CreepCarrier.prototype.depositEnergy = function() {
 		}
 
 		if(!this.creep.pos.isNearTo(worker, range)) {
-			this.creep.say('transfer');
+			this.creep.say(`tran ${worker.id.substring(worker.id.length - 5)}`);
 			this.creep.moveTo(worker, {visualizePathStyle: {stroke: '#ff00ff'}});
 			this.creep.transfer(worker, RESOURCE_ENERGY);
 		} else {
